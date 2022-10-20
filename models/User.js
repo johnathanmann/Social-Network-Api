@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const userSchema = require('./Assignment');
+const Thought = require('./Thought');
 
 // Schema to create Student model
 const userSchema = new Schema(
@@ -10,13 +10,11 @@ const userSchema = new Schema(
       required: true,
       trim: true
     },
-    email: {
+    email: { 
       type: String,
       required: true,
-      unqiue: true,
-      required: 'Email address is required',
-        validate: [validateEmail, 'Please fill a valid email address'],
-        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+      match: /.+\@.+\..+/,
+      unique: true
     },
     thoughts: {
       type: Schema.Types.ObjectId,

@@ -13,7 +13,6 @@ app.use(require('./routes'));
 
 // Connect to the mongoose database
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network-api', {
-  useFindAndModify: false,
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -22,3 +21,4 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network-
 mongoose.set('debug', true);
 
 app.listen(PORT, () => console.log(`Express server connected on Port:${PORT}`));
+

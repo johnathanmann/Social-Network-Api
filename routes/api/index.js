@@ -5,4 +5,5 @@ const userRoutes = require('./userRoutes');
 router.use('/thougt', thoughtRoutes);
 router.use('/user', userRoutes);
 
+
 module.exports = router;

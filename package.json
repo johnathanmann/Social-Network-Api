@@ -9,7 +9,6 @@
     "seed": "node utils/seed"
   },
   "dependencies": {
-    "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "mongoose": "^6.0.13"
   },
