@@ -1,6 +1,8 @@
 const { Schema, model } = require('mongoose');
+// Import reactions
 const reactionSchema = require('./Reaction');
-// Schema to create a course model
+
+// Schema to create a thought model
 const thoughtSchema = new Schema(
   {
     thoughtText: {
