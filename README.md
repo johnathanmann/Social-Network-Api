@@ -1,6 +1,6 @@
 # Social-Network-Api
 
-This project was completed for KU's coding boot camp assignment 11. 
+This project was completed for KU's coding boot camp assignment 18. 
 
 The goal of this project was to create a mongodb database and api using mongoose.
 
