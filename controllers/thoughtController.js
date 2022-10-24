@@ -30,7 +30,7 @@ createThought({ body }, res) {
     .then((thoughtData) => {
       return User.findOneAndUpdate(
         { _id: body.userId },{ $push: { thoughts: thoughtData._id } },{ new: true });})
-        .then(dbThought => res.json(dbThought))
+        .then(dbThought => res.json("Thought posted"))
         .catch(err => {
             console.log(err);
             res.status(400).json(err)
@@ -40,7 +40,7 @@ createThought({ body }, res) {
 // Find and delete a thought from the id in the url seen here as {params}
 deleteThought({params}, res){
   Thought.deleteOne({ _id: params.id })
-  .then(dbThought => res.json(dbThought))
+  .then(dbThought => res.json("Thought deleted"))
         .catch(err => {
             console.log(err);
             res.status(400).json(err)
@@ -50,7 +50,7 @@ deleteThought({params}, res){
 // Find and update by the id in the url from the json sent through seen here as {params}
 updateThought({params, body}, res){
   Thought.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
-  .then(dbThought => res.json(dbThought))
+  .then(dbThought => res.json("Thought updated"))
         .catch(err => {
             console.log(err);
             res.status(400).json(err)

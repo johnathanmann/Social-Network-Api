@@ -26,7 +26,7 @@ getUser({params}, res){
 // Create a new instance of the user model from the inputted json
 createUser(req, res){
   User.create(req.body)
-  .then(dbUser => res.json(dbUser))
+  .then(dbUser => res.json("User created"))
     .catch(err => {
         console.log(err);
         res.status(400).json(err)
@@ -36,7 +36,7 @@ createUser(req, res){
 // Find and delete a user from the id in the url seen here as {params}
 deleteUser({params}, res){
   User.deleteOne({ _id: params.id })
-  .then(dbUser => res.json(dbUser))
+  .then(dbUser => res.json("User deleted"))
         .catch(err => {
             console.log(err);
             res.status(400).json(err)
@@ -46,7 +46,7 @@ deleteUser({params}, res){
 // Find and update by the id in the url from the json sent through seen here as {params}
 updateUser({params, body}, res){
   User.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
-  .then(dbUser => res.json(dbUser))
+  .then(dbUser => res.json("User updated"))
         .catch(err => {
             console.log(err);
             res.status(400).json(err)
@@ -59,7 +59,7 @@ updateUser({params, body}, res){
 addFriend({ params }, res) {
   User.findOneAndUpdate(
     { _id: params.id },{ $addToSet: { friends: params.friendsId } }, { new: true })
-    .then(dbUser => res.json(dbUser))
+    .then(dbUser => res.json("Friend added"))
         .catch(err => {
             console.log(err);
             res.status(400).json(err)
@@ -70,7 +70,7 @@ addFriend({ params }, res) {
 removeFriend({ params }, res) {
   User.findOneAndUpdate(
     { _id: params.id },{ $pull: { friends: params.friendsId } }, { new: true })
-    .then(dbUser => res.json(dbUser))
+    .then(dbUser => res.json("Friend removed"))
         .catch(err => {
             console.log(err);
             res.status(400).json(err)
